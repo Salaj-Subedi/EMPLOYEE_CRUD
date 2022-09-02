@@ -1,6 +1,6 @@
 const Employee = require("../model/emp.model.js");
 
-// create 
+// create
 const create = (req, res) => {
   const employee = new Employee({
     name: req.body.name,
@@ -8,8 +8,9 @@ const create = (req, res) => {
     position: req.body.position,
     nepali: req.body.nepali || false,
   });
-  // Save Employee in the database
-  employee.save()
+  // Save Employee
+  employee
+    .save()
     .then((employee) => {
       res.send(employee);
     })
@@ -21,7 +22,7 @@ const create = (req, res) => {
     });
 };
 
-// Update 
+// Update
 const updates = (req, res) => {
   Employee.findByIdAndUpdate(
     req.params.empID,
@@ -42,7 +43,7 @@ const updates = (req, res) => {
   });
 };
 
-// find single 
+// find single
 const returnOne = (req, res) => {
   Employee.findById(req.params.empID).then((employee) => {
     if (!employee) {
@@ -54,7 +55,7 @@ const returnOne = (req, res) => {
   });
 };
 
-// display list of all employees
+// display all
 const returnAll = (req, res) => {
   Employee.find()
     .then((employee) => {
@@ -67,7 +68,7 @@ const returnAll = (req, res) => {
     });
 };
 
-// Delete 
+// Delete
 const deleted = (req, res) => {
   Employee.findByIdAndRemove(req.params.empID).then((employee) => {
     if (!employee) {
@@ -78,8 +79,6 @@ const deleted = (req, res) => {
     res.send({ message: `Employee deleted ${req.params.empID}` });
   });
 };
-
-
 
 module.exports = {
   create,
