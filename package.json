@@ -1,0 +1,23 @@
+{
+  "name": "crud_app",
+  "version": "1.0.0",
+  "description": "this is my 1st crud application",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "Express",
+    "RestAPI",
+    "MongoDB",
+    "Mongoose",
+    "EmployeeRecords"
+  ],
+  "author": "SALAJ SUBEDI",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.4"
+  }
+}
